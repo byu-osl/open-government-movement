@@ -1,0 +1,239 @@
+\documentclass[xcolor=svgnames,compress]{beamer}
+
+\newcommand{\blue}[1]{\textcolor{DarkBlue}{#1}}
+\newcommand{\white}[1]{\textcolor{White}{#1}}
+\newcommand{\gray}[1]{\textcolor{black!70}{#1}}
+\newcommand{\red}[1]{\textcolor{FireBrick}{#1}}
+\newcommand{\code}[1]{\textcolor{blue}{\texttt{#1}}}
+
+\newcommand{\separator}[1]{
+  {
+    \setbeamercolor{background canvas}{bg=LightSteelBlue}
+    \frame[plain]{
+      \begin{center}
+        \gray{\Huge \bf #1}
+      \end{center}
+    }
+  }
+}
+
+\newcommand{\divider}[1]{
+  {
+    \setbeamercolor{background canvas}{bg=Gold}
+    \frame[plain]{
+      \begin{center}
+        \gray{\Huge \bf #1}
+      \end{center}
+    }
+  }
+}
+
+
+\newcommand{\fig}[2]{\centerline{\includegraphics[height={#1}]{figures/{#2}}}}
+\newcommand{\figw}[2]{\centerline{\includegraphics[width={#1}]{figures/{#2}}}}
+\newcommand{\graph}[2]{\centerline{\includegraphics[height={#1}]{graphs/{#2}}}}
+\newcommand{\graphw}[2]{\centerline{\includegraphics[width={#1}]{graphs/{#2}}}}
+\newcommand{\headline}[1]{\centerline{\small \blue{#1}}}
+
+\usetheme{Frankfurt}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{mini frames}{}
+\setbeamercolor{section in head/foot}{bg=black!70}
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamercolor{title}{fg=white,bg=black!70,size=\huge,series=\bfseries}
+\setbeamercolor{frametitle}{fg=black!70,bg=white}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamertemplate{items}[circle]
+\setbeamercolor{itemize item}{fg=black!40}
+\setbeamercolor{button}{bg=black!70,fg=white}
+\setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false]
+
+\setbeamertemplate{headline}
+{%
+  \begin{beamercolorbox}[ht=3ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+    \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+    \insertsectionnavigationhorizontal{0.95\textwidth}{}{}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{\hfill{\hspace*{2em}\insertframenumber/\inserttotalframenumber\hspace*{2ex}\vskip0pt}}
+
+% PDF settings
+\hypersetup{%
+  pdftitle={Civic Hacking},%
+  pdfauthor={Daniel Zappala},%
+  pdfsubject={},%
+  pdfkeywords={}%
+}
+
+\title{Civic Hacking}
+\author{Daniel Zappala}
+\institute{Computer Science\\Brigham Young University}
+\date{\fig{1cm}{logo.png}\\\href{https://osl.byu.edu/}{\beamergotobutton{Lab Home}} \href{https://github.com/byu-osl/}{\beamergotobutton{Github}}}
+
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\section{}
+
+{
+\setbeamercolor{background canvas}{bg=LightSteelBlue}
+\frame[plain]{
+  \vspace{0.25cm}
+  {\large \bf Civic Hacking}
+  \vspace{1cm}\\
+  building apps to help local government connect with citizens\\
+  \hspace{5cm}{\em -- BYU Open Source Lab}\\
+  \vspace{1cm}
+  helping cities create 21st century interfaces to government that are simple, beautiful and easy to use\\
+  \hspace{5cm}{\em -- Code for America}\\
+  \vspace{1cm}
+  \href{http://embed.ted.com/talks/jennifer_pahlka_coding_a_better_government.html}{\beamergotobutton{Jennifer Pahlka TED Talk}}
+}
+}
+
+\divider{quick\\\vspace{0.75cm}cheap\\\vspace{0.75cm}simple\\\vspace{0.75cm}beautiful\\\vspace{1cm}open}
+
+\frame[plain]{
+  \figw{13cm}{blightstatus}
+}
+
+\frame[plain]{
+  \figw{13cm}{honolulu-answers}
+}
+
+\frame[plain]{
+  \figw{13cm}{preparedly}
+}
+
+\frame[plain]{
+  \figw{13cm}{crime-in-chicago}
+}
+
+\frame[plain]{
+  \figw{13cm}{textizen}
+}
+
+\frame[plain]{
+  \figw{13cm}{schoolbus}
+}
+
+\frame{
+  \begin{itemize}
+  \item really vibrant space
+  \item lots of excitement about open government
+  \item big on open source {\em and} startups
+  \item opportunities
+    \begin{itemize}
+    \item \href{http://opencityapps.org}{\beamergotobutton{Open City Apps}}
+    \item \href{http://codeforamerica.org}{\beamergotobutton{Code for America}}
+    \item \href{http://sunlightfoundation.com/about/grants/opengovgrants/}{\beamergotobutton{Sunlight Foundation OpenGov Grants}}
+    \item \href{http://www.knightfoundation.org/funding-initiatives/tech-engagement/}{\beamergotobutton{Knight Foundation Tech for Engagement}}
+    \end{itemize}
+  \end{itemize}
+}
+
+\separator{BYU Open Source Lab}
+
+\frame[plain]{
+  \figw{13cm}{citizen-budget}
+  \href{http://citizenbudget.org}{\beamergotobutton{citizenbudget.org}}
+}
+
+\frame{
+  \frametitle{Citizen Budget}
+  \begin{itemize}
+  \item started with a Code for America project, had students
+    customize it, eventually rewrote it
+  \item deployed at \href{http://budget.cedarhills.org}{\beamergotobutton{budget.cedarhills.org}}
+  \item plans to improve it
+    \begin{itemize}
+    \item write a Javascript front end with Angular or Ember
+    \item enable staff to edit explanations on each page
+    \item allow user comments and responses from staff
+    \item write additional converters for municipal budget packages
+    \item possibly convert into SaaS, charge cities for storage
+    \end{itemize}
+  \end{itemize}
+}
+
+\frame{
+  \frametitle{The Next App}
+  \begin{itemize}
+  \item customer service portal
+    \begin{itemize}
+    \item resident takes a photo, enters complaint in Smart Phone app
+    \item begins a dialogue with city staff as they work on fixing the problem
+    \item problems marked Open, Working, Closed
+    \end{itemize}
+  \item staff uses web app and phones to track progress of customer service
+    items
+  \item report track record to mayor on a weekly/monthly basis
+  \item \href{http://www.cityofboston.gov/doit/apps/citizensconnect.asp}{\beamergotobutton{Citizens Connect (Boston)}}
+  \item \href{http://servicetracker.cityofchicago.org/}{\beamergotobutton{ServiceTracker for City of Chicago}}
+  \item \href{http://open311.org/}{\beamergotobutton{Open311.org}}
+  \item \href{https://github.com/codeforamerica/srtracker}{\beamergotobutton{GitHub}}
+  \end{itemize}
+}
+
+\frame{
+  \frametitle{The Next App}
+  \begin{itemize}
+  \item digital feedback
+    \begin{itemize}
+    \item city posts short, targeted questions on current agenda items
+    \item {\em what should the curfew be for city parks?}
+    \item residents can provide feedback, vote each other up or down
+    \item similar to Textizen, but via smartphone app, more interactive
+    \end{itemize}
+  \item council can use feedback to guide decisions
+  \end{itemize}
+}
+
+\frame{
+  \frametitle{Framework}
+  \begin{itemize}
+    \item design an open source framework for city apps
+    \begin{itemize}
+    \item hosted in one place instead of tens of different apps
+    \item plugin architecture so cities can activate different apps on
+      demand
+    \item hostable or SaaS
+    \end{itemize}
+  \item the Wordpress for civic hacking
+  \end{itemize}
+}
+
+\divider{Vision}
+
+\frame{
+  \frametitle{Vision}
+  \begin{itemize}
+  \vfill \item BYU Open Source Lab hosts R\&D for city apps
+      \begin{itemize}
+      \item joint research with Political Science, Digital Arts,
+        Computer Science to study citizen engagement through deployed apps
+      \item funding via Sunlight Foundation, Knight Foundation, others
+      \end{itemize}
+    \vfill \item collaboration with developer community through Code for America
+      Brigade
+      \begin{itemize}
+        \item organize a hack night that meets at least once a month
+        \item foster a relationship with a local government partner
+      \end{itemize}
+    \vfill \item can stay open source, can get help to transition to a startup
+      \begin{itemize}
+      \item Textizen
+      \item BlightStatus $\rightarrow$ Civic Insight
+      \item Honolulu Answers $\rightarrow$ Department of Better Technology
+      \end{itemize}
+  \end{itemize}
+}
+
+\separator{Who Wants to Help Out?\\\vspace{1cm}daniel.zappala@gmail.com\\\vspace{1cm}zappala.byu.edu}
+
+\end{document}
